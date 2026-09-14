@@ -1,11 +1,10 @@
 import SwiftUI
 
-/// Flik 3 — din egen.
+/// Tab 3, yours.
 ///
-/// Den här fliken är avsiktligt helt tom. Det är här du bygger något
-/// som inte står i instruktionerna: en profil, en kodstuga, en karta
-/// över träffarna, en räknare över hur många gånger du varit med.
-/// Vad som helst.
+/// This tab is deliberately empty. Build something that isn't in the
+/// instructions: a profile, a map of the events, a countdown, a counter of
+/// how many you have attended. Anything at all.
 struct IdeaView: View {
     var body: some View {
         VStack(spacing: 0) {

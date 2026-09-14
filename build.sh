@@ -1,6 +1,6 @@
 #!/bin/bash
-# Bygger appen och skriver bara ut det som är intressant: felen.
-# Kör med:  ./build.sh
+# Builds the app and prints only what matters: the errors.
+# Run with:  ./build.sh
 cd "$(dirname "$0")" || exit 1
 
 output=$(xcodebuild \

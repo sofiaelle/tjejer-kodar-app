@@ -1,10 +1,10 @@
 import SwiftUI
 
-/// Ett galleri över allt som finns i designsystemet.
+/// A gallery of everything in the design system.
 ///
-/// Den här filen används inte i appen – den finns bara så att du (och Claude)
-/// snabbt kan se vilka byggklossar som redan finns. Öppna filen i Xcode och
-/// tryck på "Resume" i förhandsvisningen till höger för att se dem.
+/// This file is not used by the app. It exists so that you (and Claude) can
+/// quickly see which building blocks already exist. Open the file in Xcode
+/// and press "Resume" in the preview on the right to see them.
 struct Gallery: View {
     @State private var invited = false
 
@@ -45,7 +45,7 @@ struct Gallery: View {
                     }
                 }
 
-                section("Knappar") {
+                section("Buttons") {
                     VStack(alignment: .leading, spacing: Spacing.m) {
                         Button("Primär knapp") {}.buttonStyle(.primary)
                         Button("Sekundär knapp") {}.buttonStyle(.secondary)
@@ -68,7 +68,7 @@ struct Gallery: View {
                     }
                 }
 
-                section("Färger") {
+                section("Colours") {
                     HStack(spacing: Spacing.s) {
                         swatch(Palette.background, "background")
                         swatch(Palette.surface, "surface")

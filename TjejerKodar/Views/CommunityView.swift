@@ -1,10 +1,10 @@
 import SwiftUI
 
-/// Flik 2 — communityt.
+/// Tab 2, the community.
 ///
-/// Tom med flit. Här bygger du en lista över personer med en
-/// "Bjud in"-knapp på varje. Titta i `Member.swift` efter datan,
-/// och i `EventsView.swift` efter hur en lista kan se ut.
+/// Empty on purpose. Here you build a list of people with an invite button
+/// on each row. The data lives in `Member.swift`, and `EventsView.swift`
+/// shows you what a list can look like.
 struct CommunityView: View {
     var body: some View {
         VStack(spacing: 0) {

@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// Appens tre flikar. Den här filen behöver du sällan ändra i —
-/// det är inne i de tre vyerna arbetet sker.
+/// The app's three tabs. You rarely need to change this file.
+/// The work happens inside the three views.
 struct RootView: View {
     var body: some View {
         TabView {

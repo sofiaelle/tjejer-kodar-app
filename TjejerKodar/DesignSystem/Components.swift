@@ -1,9 +1,9 @@
 import SwiftUI
 
-// MARK: - Kort
+// MARK: - Card
 
-/// Ett kort med egen yta, rundade hörn och en tunn kantlinje.
-/// Lägg vad du vill inuti.
+/// A card with its own surface, rounded corners and a thin border.
+/// Put whatever you like inside.
 ///
 /// ```swift
 /// Card {
@@ -26,9 +26,9 @@ struct Card<Content: View>: View {
     }
 }
 
-// MARK: - Knappar
+// MARK: - Buttons
 
-/// Appens huvudknapp: fylld med accentfärgen.
+/// The app's main button, filled with the accent colour.
 ///
 /// ```swift
 /// Button("Anmäl dig") { }
@@ -48,7 +48,7 @@ struct PrimaryButtonStyle: ButtonStyle {
     }
 }
 
-/// En lugnare knapp, för mindre viktiga val.
+/// A quieter button, for less important choices.
 struct SecondaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -62,8 +62,8 @@ struct SecondaryButtonStyle: ButtonStyle {
     }
 }
 
-/// En liten knapp som får plats inne i ett kort, t.ex. "Bjud in".
-/// Byter utseende när något redan är gjort.
+/// A small button that fits inside a card, for example "Bjud in".
+/// Changes appearance once something is already done.
 ///
 /// ```swift
 /// Button("Bjud in") { }
@@ -98,9 +98,9 @@ extension ButtonStyle where Self == CompactButtonStyle {
     }
 }
 
-// MARK: - Etikett
+// MARK: - Label
 
-/// En liten rundad etikett, t.ex. för vilken sorts träff något är.
+/// A small rounded label, for example for what kind of event something is.
 ///
 /// ```swift
 /// Pill("Workshop")
@@ -144,9 +144,9 @@ struct Pill: View {
     }
 }
 
-// MARK: - Datum
+// MARK: - Date
 
-/// Visar ett datum som ett kompakt block: dag över månad.
+/// Shows a date as a compact block, day above month.
 ///
 /// ```swift
 /// DateBadge(date: event.date)
@@ -172,9 +172,9 @@ struct DateBadge: View {
 
 // MARK: - Person
 
-/// En rund bricka med initialerna för ett namn.
-/// Färgen väljs automatiskt utifrån namnet, så samma person
-/// alltid får samma färg.
+/// A round badge with the initials of a name.
+/// The colour is picked automatically from the name, so the same person
+/// always gets the same colour.
 ///
 /// ```swift
 /// Avatar(name: "Alma Ek")
@@ -205,9 +205,9 @@ struct Avatar: View {
     }
 }
 
-// MARK: - Tomt läge
+// MARK: - Empty state
 
-/// Visas när det inte finns något innehåll än.
+/// Shown when there is no content yet.
 ///
 /// ```swift
 /// EmptyStateView(
@@ -239,9 +239,9 @@ struct EmptyStateView: View {
     }
 }
 
-// MARK: - Skärmrubrik
+// MARK: - Screen header
 
-/// Rubriken högst upp på en skärm, med plats för en knapp till höger.
+/// The heading at the top of a screen, with room for a button on the right.
 ///
 /// ```swift
 /// ScreenHeader("Kommande") {
@@ -279,9 +279,9 @@ extension ScreenHeader where Trailing == EmptyView {
     }
 }
 
-// MARK: - Skärmbakgrund
+// MARK: - Screen background
 
-/// Lägger appens bakgrundsfärg bakom en hel skärm.
+/// Puts the app's background colour behind a whole screen.
 ///
 /// ```swift
 /// VStack { ... }

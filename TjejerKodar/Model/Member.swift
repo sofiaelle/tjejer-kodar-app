@@ -1,13 +1,13 @@
 import Foundation
 
-/// Någon i communityt, som du kan bjuda in till en träff.
+/// Someone in the community, who you can invite to an event.
 struct Member: Identifiable, Hashable, Codable {
     var id = UUID()
-    /// Hela namnet. `Avatar` gör initialer av det automatiskt.
+    /// Full name. `Avatar` turns it into initials automatically.
     var name: String
-    /// Vad personen gör, t.ex. "iOS-utvecklare".
+    /// What the person does, for example "iOS-utvecklare".
     var role: String
-    /// Om du redan har bjudit in hen.
+    /// Whether you have already invited them.
     var isInvited: Bool
 
     init(id: UUID = UUID(), name: String, role: String, isInvited: Bool = false) {
@@ -19,7 +19,7 @@ struct Member: Identifiable, Hashable, Codable {
 }
 
 extension Member {
-    /// Exempeldata att bygga gränssnittet med.
+    /// Sample data to build the interface with.
     static let examples: [Member] = [
         Member(name: "Alma Ek", role: "iOS-utvecklare", isInvited: true),
         Member(name: "Nour Hassan", role: "Frontend"),

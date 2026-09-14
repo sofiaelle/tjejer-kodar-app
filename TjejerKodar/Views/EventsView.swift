@@ -1,12 +1,12 @@
 import SwiftUI
 
-/// Flik 1 — kommande träffar.
+/// Tab 1, upcoming events.
 ///
-/// Den här vyn är redan byggd, och det är med flit: använd den som
-/// facit när du bygger de andra två flikarna. Fastnar du där, fråga
-/// Claude "förklara hur EventsView fungerar".
+/// This view is already built, on purpose. Use it as your reference when
+/// you build the other two tabs. If you get stuck there, ask Claude to
+/// explain how EventsView works.
 struct EventsView: View {
-    /// Exempeldata så länge. I nivå 1 gör du listan ändringsbar.
+    /// Sample data for now. In level 1 you make this list mutable.
     private let events = Event.examples
 
     var body: some View {
@@ -27,7 +27,7 @@ struct EventsView: View {
     }
 }
 
-/// Ett kort för en träff.
+/// One card for one event.
 struct EventRow: View {
     var event: Event
 

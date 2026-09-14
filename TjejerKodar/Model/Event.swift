@@ -1,8 +1,8 @@
 import Foundation
 
-/// En träff i kalendern: workshop, hackaton, meetup eller afterwork.
+/// An event in the calendar: workshop, hackathon, meetup or afterwork.
 struct Event: Identifiable, Hashable, Codable {
-    /// Vad för sorts träff det är. Används för etiketten på kortet.
+    /// What kind of event it is. Used for the pill on the card.
     enum Kind: String, Codable, CaseIterable {
         case workshop = "Workshop"
         case hackathon = "Hackaton"
@@ -11,14 +11,14 @@ struct Event: Identifiable, Hashable, Codable {
     }
 
     var id = UUID()
-    /// Rubriken, t.ex. "Koda med AI".
+    /// The title, for example "Koda med AI".
     var title: String
-    /// När träffen är.
+    /// When the event takes place.
     var date: Date
-    /// Var den är, t.ex. "Bruce, Stockholm".
+    /// Where it is, for example "Bruce, Stockholm".
     var place: String
     var kind: Kind
-    /// Om du har anmält dig.
+    /// Whether you have signed up.
     var isAttending: Bool
 
     init(
@@ -39,8 +39,8 @@ struct Event: Identifiable, Hashable, Codable {
 }
 
 extension Event {
-    /// Exempeldata att bygga gränssnittet med.
-    /// Datumen räknas ut från idag, så listan blir aldrig gammal.
+    /// Sample data to build the interface with.
+    /// Dates are calculated from today, so the list never goes stale.
     static let examples: [Event] = [
         Event(title: "Koda med AI",
               date: inDays(3, hour: 17),
@@ -65,7 +65,7 @@ extension Event {
               kind: .workshop)
     ]
 
-    /// Ett datum så här många dagar fram i tiden, vid en viss timme.
+    /// A date this many days from now, at a given hour.
     private static func inDays(_ days: Int, hour: Int) -> Date {
         let calendar = Calendar.current
         let day = calendar.date(byAdding: .day, value: days, to: .now) ?? .now

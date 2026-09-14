@@ -1,83 +1,87 @@
 # Tjejer kodar
 
-En iOS-app för communityt Tjejer kodar, byggd i SwiftUI under en workshop om
-att koda med AI. Appen har tre flikar: kommande träffar, community, och en
-tredje flik som deltagaren själv bestämmer innehållet i.
+An iOS app for the Tjejer kodar community, built in SwiftUI during a workshop
+about coding with AI. The app has three tabs: upcoming events, community, and
+a third tab whose contents the participant decides.
 
-Personen du hjälper är kanske helt ny på Swift – förklara vad du gör på
-svenska, kort och utan jargong.
+The person you are helping may be completely new to Swift. Explain what you
+are doing briefly and without jargon.
 
-## Bygg alltid innan du säger att du är klar
+Write code comments in English. User facing text in the app is Swedish, so
+match the strings that are already there.
+
+## Always build before you say you are done
 
 ```bash
 ./build.sh
 ```
 
-Skriptet skriver ut kompileringsfelen. **Kör det efter varje ändring** och
-fortsätt laga tills det står `** BUILD SUCCEEDED **`. Säg aldrig att något är
-klart utan att ha kört det.
+The script prints the compiler errors. **Run it after every change** and keep
+fixing until it says `** BUILD SUCCEEDED **`. Never say something is finished
+without having run it.
 
-## Använd designsystemet – hitta inte på egna färger och mått
+## Use the design system, do not invent colours and measurements
 
-Allt som rör utseende finns i `TjejerKodar/DesignSystem/`. Läs `Tokens.swift`
-och `Components.swift` innan du bygger något nytt gränssnitt.
+Everything visual lives in `TjejerKodar/DesignSystem/`. Read `Tokens.swift`
+and `Components.swift` before you build any new interface.
 
-- Färger: `Palette.background`, `.surface`, `.ink`, `.inkMuted`, `.accent`,
+- Colours: `Palette.background`, `.surface`, `.ink`, `.inkMuted`, `.accent`,
   `.accentSoft`, `.border`, `.success`, `.successSoft`
-- Avstånd: `Spacing.xs` … `Spacing.xxl` – **aldrig** hårdkodade siffror
-- Hörn: `Radius.small` / `.medium` / `.large`
+- Spacing: `Spacing.xs` through `Spacing.xxl`, **never** hardcoded numbers
+- Corners: `Radius.small` / `.medium` / `.large`
 - Text: `TextStyle.title` / `.heading` / `.body` / `.caption`
-- Komponenter: `Card`, `Pill`, `DateBadge`, `Avatar`, `EmptyStateView`,
-  `ScreenHeader`, knappstilarna `.primary` / `.secondary` / `.compact(isDone:)`,
-  och `.screenBackground()`
+- Components: `Card`, `Pill`, `DateBadge`, `Avatar`, `EmptyStateView`,
+  `ScreenHeader`, the button styles `.primary` / `.secondary` /
+  `.compact(isDone:)`, and `.screenBackground()`
 
-Alltså `.foregroundStyle(Palette.ink)`, inte `.foregroundStyle(.black)`.
-Och `.padding(Spacing.l)`, inte `.padding(16)`.
+So `.foregroundStyle(Palette.ink)`, not `.foregroundStyle(.black)`.
+And `.padding(Spacing.l)`, not `.padding(16)`.
 
-`Gallery.swift` visar alla komponenter. Den ingår inte i appen – ändra den bara
-om du lägger till en ny komponent, och lägg då till den i galleriet också.
+`Gallery.swift` shows every component. It is not part of the app. Only change
+it if you add a new component, and then add that component to the gallery too.
 
-## Så här är koden organiserad
+## How the code is organised
 
 ```
 TjejerKodar/
-├── TjejerKodarApp.swift       ← appens startpunkt
-├── RootView.swift             ← de tre flikarna
+├── TjejerKodarApp.swift       app entry point
+├── RootView.swift             the three tabs
 ├── Views/
-│   ├── EventsView.swift       ← flik 1, redan byggd
-│   ├── CommunityView.swift    ← flik 2, tom med flit
-│   └── IdeaView.swift         ← flik 3, deltagarens egen
+│   ├── EventsView.swift       tab 1, already built
+│   ├── CommunityView.swift    tab 2, empty on purpose
+│   └── IdeaView.swift         tab 3, the participant's own
 ├── Model/
-│   ├── Event.swift            ← träffar + exempeldata
-│   └── Member.swift           ← personer + exempeldata
-└── DesignSystem/              ← färger, mått, komponenter
+│   ├── Event.swift            events plus sample data
+│   └── Member.swift           people plus sample data
+└── DesignSystem/              colours, measurements, components
 ```
 
-`EventsView.swift` är byggd som referens. När deltagaren ska bygga
-community-fliken: peka på den och visa hur samma mönster kan återanvändas.
+`EventsView.swift` is built as a reference. When the participant builds the
+community tab, point at it and show how the same pattern can be reused.
 
-Nya skärmar läggs i `Views/`. Nya datatyper i `Model/`.
+New screens go in `Views/`. New data types in `Model/`.
 
-Projektet använder en synkroniserad mapp, så nya `.swift`-filer kommer med i
-bygget automatiskt. Du behöver **inte** redigera `project.pbxproj` – gör det
-inte, det går sönder lätt.
+The project uses a synchronised folder, so new `.swift` files are picked up by
+the build automatically. You do **not** need to edit `project.pbxproj`. Do not
+do it, it breaks easily.
 
-## Hur du ska jobba
+## How to work
 
-- **Ett steg i taget.** Gör en sak, bygg, berätta vad du gjorde. Vänta på nästa
-  instruktion. Bygg inte tre flikar på en gång.
-- **Läs innan du skriver.** Öppna filerna du ska ändra i först.
-- **Gör bara det du blev ombedd.** Ingen extra "medan jag var här ändå"-kod,
-  inga nya beroenden, inga bibliotek utifrån.
-- **Rör inte flikar deltagaren inte bett om.** Håller vi på med community-fliken
-  ska `EventsView` vara orörd.
-- **Fråga när något är otydligt** i stället för att gissa.
-- Om du är osäker på ett SwiftUI-API: säg det, gissa inte fram ett som inte finns.
+- **One step at a time.** Do one thing, build, say what you did. Wait for the
+  next instruction. Do not build three tabs at once.
+- **Read before you write.** Open the files you are about to change first.
+- **Only do what you were asked.** No extra "while I was in here anyway" code,
+  no new dependencies, no outside libraries.
+- **Do not touch tabs the participant did not ask about.** If you are working
+  on the community tab, `EventsView` stays untouched.
+- **Ask when something is unclear** instead of guessing.
+- If you are unsure about a SwiftUI API, say so. Do not invent one that does
+  not exist.
 
-## Teknik
+## Technical
 
-- SwiftUI, inget UIKit (utom det som redan finns i `Tokens.swift`)
-- iOS 18 och uppåt
-- `@Observable` för delad state, `@State` för lokal
-- Bara Apples egna ramverk – inga tredjepartsbibliotek
-- Svenska i all text som användaren ser
+- SwiftUI, no UIKit, apart from what already exists in `Tokens.swift`
+- iOS 18 and up
+- `@Observable` for shared state, `@State` for local state
+- Apple frameworks only, no third party libraries
+- Swedish for all text the user sees

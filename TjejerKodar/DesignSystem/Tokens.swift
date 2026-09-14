@@ -1,37 +1,38 @@
 import SwiftUI
 
-// MARK: - Färger
+// MARK: - Colours
 
-/// Appens färgpalett. Alla färger har både ett ljust och ett mörkt läge,
-/// så appen fungerar automatiskt i dark mode.
+/// The app's colour palette. Every colour has both a light and a dark value,
+/// so the app handles dark mode automatically.
 ///
-/// Använd `Palette.ink` i stället för `.black`, `Palette.accent` i stället
-/// för `.purple`, och så vidare.
+/// Use `Palette.ink` instead of `.black`, `Palette.accent` instead of
+/// `.purple`, and so on.
 enum Palette {
-    /// Bakgrunden bakom allt innehåll.
+    /// The background behind all content.
     static let background = Color(light: 0xFBF9FD, dark: 0x121019)
-    /// Ytan på kort och paneler som ligger ovanpå bakgrunden.
+    /// The surface of cards and panels sitting on top of the background.
     static let surface = Color(light: 0xFFFFFF, dark: 0x1F1B28)
-    /// Vanlig textfärg.
+    /// Regular text colour.
     static let ink = Color(light: 0x1B1522, dark: 0xF4F0F8)
-    /// Dämpad text: bildtexter, hjälptexter, datum.
+    /// Muted text: captions, help text, dates.
     static let inkMuted = Color(light: 0x796F87, dark: 0xA79CB5)
-    /// Appens signaturfärg. Används på knappar och markeringar.
+    /// The app's signature colour. Used on buttons and highlights.
     static let accent = Color(light: 0x8A2FAF, dark: 0xCB8CEA)
-    /// Svag variant av signaturfärgen, för bakgrunder bakom accentfärgad text.
+    /// A soft variant of the signature colour, for backgrounds behind
+    /// accent coloured text.
     static let accentSoft = Color(light: 0xF5E8FB, dark: 0x2C1D38)
-    /// Tunna linjer och kantlinjer.
+    /// Thin lines and borders.
     static let border = Color(light: 0xEBE1F1, dark: 0x322A3C)
-    /// Bekräftelser: anmäld, inbjuden, klart.
+    /// Confirmations: signed up, invited, done.
     static let success = Color(light: 0x14755E, dark: 0x5BD6BA)
-    /// Svag variant av bekräftelsefärgen.
+    /// A soft variant of the confirmation colour.
     static let successSoft = Color(light: 0xE2F4EF, dark: 0x14302A)
 }
 
-// MARK: - Mått
+// MARK: - Measurements
 
-/// Avstånd. Använd dessa i stället för egna siffror, så blir mellanrummen
-/// konsekventa genom hela appen.
+/// Spacing values. Use these instead of your own numbers, so the gaps stay
+/// consistent throughout the app.
 enum Spacing {
     /// 4 pt
     static let xs: CGFloat = 4
@@ -47,32 +48,33 @@ enum Spacing {
     static let xxl: CGFloat = 32
 }
 
-/// Hörnradier.
+/// Corner radii.
 enum Radius {
     static let small: CGFloat = 10
     static let medium: CGFloat = 16
     static let large: CGFloat = 24
 }
 
-// MARK: - Typografi
+// MARK: - Typography
 
-/// Textstilar. Alla skalar med användarens valda textstorlek i iOS.
+/// Text styles. All of them scale with the text size the user has chosen
+/// in iOS.
 enum TextStyle {
-    /// Stor rubrik, högst upp på en skärm.
+    /// Large heading, at the top of a screen.
     static let title = Font.system(.largeTitle, design: .rounded, weight: .bold)
-    /// Rubrik på ett kort eller en sektion.
+    /// Heading on a card or a section.
     static let heading = Font.system(.headline, design: .rounded, weight: .semibold)
-    /// Vanlig brödtext.
+    /// Regular body text.
     static let body = Font.system(.body)
-    /// Liten text: datum, hjälptexter, etiketter.
+    /// Small text: dates, help text, labels.
     static let caption = Font.system(.subheadline)
 }
 
-// MARK: - Hjälpare
+// MARK: - Helpers
 
 extension Color {
-    /// Skapar en färg som byter värde automatiskt i dark mode.
-    /// Färgerna skrivs som hex-tal, t.ex. `0xFF8800`.
+    /// Creates a colour that switches value automatically in dark mode.
+    /// The colours are written as hex numbers, for example `0xFF8800`.
     init(light: UInt32, dark: UInt32) {
         self.init(uiColor: UIColor { traits in
             UIColor(hex: traits.userInterfaceStyle == .dark ? dark : light)
