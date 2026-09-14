@@ -1,0 +1,114 @@
+import SwiftUI
+
+/// Ett galleri över allt som finns i designsystemet.
+///
+/// Den här filen används inte i appen – den finns bara så att du (och Claude)
+/// snabbt kan se vilka byggklossar som redan finns. Öppna filen i Xcode och
+/// tryck på "Resume" i förhandsvisningen till höger för att se dem.
+struct Gallery: View {
+    @State private var invited = false
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: Spacing.xl) {
+                section("ScreenHeader") {
+                    ScreenHeader("Kommande") {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                }
+
+                section("Card + DateBadge + Pill") {
+                    Card {
+                        HStack(alignment: .top, spacing: Spacing.m) {
+                            DateBadge(date: .now)
+                            VStack(alignment: .leading, spacing: Spacing.xs) {
+                                Text("Koda med AI").font(TextStyle.heading)
+                                Text("Bruce, Stockholm")
+                                    .font(TextStyle.caption)
+                                    .foregroundStyle(Palette.inkMuted)
+                                HStack(spacing: Spacing.s) {
+                                    Pill("Workshop")
+                                    Pill("Anmäld", tone: .success)
+                                }
+                                .padding(.top, Spacing.xs)
+                            }
+                        }
+                    }
+                }
+
+                section("Avatar") {
+                    HStack(spacing: Spacing.m) {
+                        Avatar(name: "Alma Ek")
+                        Avatar(name: "Nour Hassan")
+                        Avatar(name: "Vera Lindqvist")
+                        Avatar(name: "Iris Bergström", size: 32)
+                    }
+                }
+
+                section("Knappar") {
+                    VStack(alignment: .leading, spacing: Spacing.m) {
+                        Button("Primär knapp") {}.buttonStyle(.primary)
+                        Button("Sekundär knapp") {}.buttonStyle(.secondary)
+                        Button(invited ? "Inbjuden" : "Bjud in") { invited.toggle() }
+                            .buttonStyle(.compact(isDone: invited))
+                    }
+                }
+
+                section("Pill") {
+                    HStack { Pill("Workshop"); Pill("Anmäld", tone: .success); Pill("Digitalt", tone: .neutral) }
+                }
+
+                section("EmptyStateView") {
+                    Card {
+                        EmptyStateView(
+                            icon: "sparkles",
+                            title: "Den här fliken är din",
+                            message: "Bygg något som inte står i instruktionerna."
+                        )
+                    }
+                }
+
+                section("Färger") {
+                    HStack(spacing: Spacing.s) {
+                        swatch(Palette.background, "background")
+                        swatch(Palette.surface, "surface")
+                        swatch(Palette.accent, "accent")
+                        swatch(Palette.accentSoft, "accentSoft")
+                        swatch(Palette.success, "success")
+                    }
+                }
+            }
+            .padding(Spacing.l)
+        }
+        .screenBackground()
+    }
+
+    private func section<Content: View>(
+        _ title: String,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        VStack(alignment: .leading, spacing: Spacing.m) {
+            Text(title)
+                .font(TextStyle.caption.weight(.semibold))
+                .foregroundStyle(Palette.inkMuted)
+            content()
+        }
+    }
+
+    private func swatch(_ color: Color, _ name: String) -> some View {
+        VStack(spacing: Spacing.xs) {
+            RoundedRectangle(cornerRadius: Radius.small)
+                .fill(color)
+                .frame(height: 44)
+                .overlay(
+                    RoundedRectangle(cornerRadius: Radius.small)
+                        .stroke(Palette.border, lineWidth: 1)
+                )
+            Text(name).font(.system(size: 9)).foregroundStyle(Palette.inkMuted)
+        }
+    }
+}
+
+#Preview {
+    Gallery()
+}
