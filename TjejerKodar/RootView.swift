@@ -6,13 +6,13 @@ struct RootView: View {
     var body: some View {
         TabView {
             EventsView()
-                .tabItem { Label("Kommande", systemImage: "calendar") }
+                .tabItem { Label("Upcoming", systemImage: "calendar") }
 
             CommunityView()
                 .tabItem { Label("Community", systemImage: "person.2") }
 
             IdeaView()
-                .tabItem { Label("Din idé", systemImage: "sparkles") }
+                .tabItem { Label("Your idea", systemImage: "sparkles") }
         }
         .tint(Palette.accent)
     }

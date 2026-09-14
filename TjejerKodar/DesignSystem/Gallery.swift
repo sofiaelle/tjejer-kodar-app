@@ -12,7 +12,7 @@ struct Gallery: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Spacing.xl) {
                 section("ScreenHeader") {
-                    ScreenHeader("Kommande") {
+                    ScreenHeader("Upcoming") {
                         Image(systemName: "plus.circle.fill")
                     }
                 }
@@ -22,13 +22,13 @@ struct Gallery: View {
                         HStack(alignment: .top, spacing: Spacing.m) {
                             DateBadge(date: .now)
                             VStack(alignment: .leading, spacing: Spacing.xs) {
-                                Text("Koda med AI").font(TextStyle.heading)
+                                Text("Coding with AI").font(TextStyle.heading)
                                 Text("Bruce, Stockholm")
                                     .font(TextStyle.caption)
                                     .foregroundStyle(Palette.inkMuted)
                                 HStack(spacing: Spacing.s) {
                                     Pill("Workshop")
-                                    Pill("Anmäld", tone: .success)
+                                    Pill("Going", tone: .success)
                                 }
                                 .padding(.top, Spacing.xs)
                             }
@@ -49,21 +49,21 @@ struct Gallery: View {
                     VStack(alignment: .leading, spacing: Spacing.m) {
                         Button("Primär knapp") {}.buttonStyle(.primary)
                         Button("Sekundär knapp") {}.buttonStyle(.secondary)
-                        Button(invited ? "Inbjuden" : "Bjud in") { invited.toggle() }
+                        Button(invited ? "Invited" : "Invite") { invited.toggle() }
                             .buttonStyle(.compact(isDone: invited))
                     }
                 }
 
                 section("Pill") {
-                    HStack { Pill("Workshop"); Pill("Anmäld", tone: .success); Pill("Digitalt", tone: .neutral) }
+                    HStack { Pill("Workshop"); Pill("Going", tone: .success); Pill("Online", tone: .neutral) }
                 }
 
                 section("EmptyStateView") {
                     Card {
                         EmptyStateView(
                             icon: "sparkles",
-                            title: "Den här fliken är din",
-                            message: "Bygg något som inte står i instruktionerna."
+                            title: "This tab is yours",
+                            message: "Build something that is not in the instructions."
                         )
                     }
                 }

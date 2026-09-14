@@ -8,14 +8,14 @@ import SwiftUI
 struct IdeaView: View {
     var body: some View {
         VStack(spacing: 0) {
-            ScreenHeader("Din idé")
+            ScreenHeader("Your idea")
 
             Spacer()
 
             EmptyStateView(
                 icon: "sparkles",
-                title: "Den här fliken är din",
-                message: "Bygg något som inte står i instruktionerna. Det är den här alla vill se på demon."
+                title: "This tab is yours",
+                message: "Build something that is not in the instructions. This is the one everyone wants to see at the demo."
             )
 
             Spacer()

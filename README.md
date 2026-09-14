@@ -14,9 +14,9 @@ claude                         # start Claude Code in the same folder
 
 | Tab | State | What you do |
 |---|---|---|
-| **Kommande** | Built | List of events. Use it as your reference for the other two. |
+| **Upcoming** | Built | List of events. Use it as your reference for the other two. |
 | **Community** | Empty | Build a list of people with an invite button. |
-| **Din idé** | Empty | Wide open. Build whatever you like. |
+| **Your idea** | Empty | Wide open. Build whatever you like. |
 
 ## What is already here
 

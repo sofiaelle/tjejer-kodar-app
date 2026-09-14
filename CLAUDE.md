@@ -7,8 +7,8 @@ a third tab whose contents the participant decides.
 The person you are helping may be completely new to Swift. Explain what you
 are doing briefly and without jargon.
 
-Write code comments in English. User facing text in the app is Swedish, so
-match the strings that are already there.
+Write everything in English: code comments, and all text the user sees in
+the app.
 
 ## Always build before you say you are done
 
@@ -84,4 +84,4 @@ do it, it breaks easily.
 - iOS 18 and up
 - `@Observable` for shared state, `@State` for local state
 - Apple frameworks only, no third party libraries
-- Swedish for all text the user sees
+- English for all text the user sees

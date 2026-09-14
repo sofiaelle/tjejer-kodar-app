@@ -5,7 +5,7 @@ struct Member: Identifiable, Hashable, Codable {
     var id = UUID()
     /// Full name. `Avatar` turns it into initials automatically.
     var name: String
-    /// What the person does, for example "iOS-utvecklare".
+    /// What the person does, for example "iOS developer".
     var role: String
     /// Whether you have already invited them.
     var isInvited: Bool
@@ -21,12 +21,12 @@ struct Member: Identifiable, Hashable, Codable {
 extension Member {
     /// Sample data to build the interface with.
     static let examples: [Member] = [
-        Member(name: "Alma Ek", role: "iOS-utvecklare", isInvited: true),
+        Member(name: "Sofia Ellegren", role: "iOS developer", isInvited: true),
         Member(name: "Nour Hassan", role: "Frontend"),
         Member(name: "Vera Lindqvist", role: "Data engineer"),
-        Member(name: "Iris Bergström", role: "Pluggar systemvetenskap"),
-        Member(name: "Sanna Ohlsson", role: "UX och lite kod"),
+        Member(name: "Jessica Thompson", role: "Studying computer science"),
+        Member(name: "Sanna Ohlsson", role: "UX and some code"),
         Member(name: "Ebba Nyström", role: "Backend"),
-        Member(name: "Leila Karim", role: "Bytte karriär i våras")
+        Member(name: "Leila Karim", role: "Changed careers this spring")
     ]
 }

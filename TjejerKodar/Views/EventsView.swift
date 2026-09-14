@@ -11,7 +11,7 @@ struct EventsView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            ScreenHeader("Kommande")
+            ScreenHeader("Upcoming")
 
             ScrollView {
                 LazyVStack(spacing: Spacing.m) {
@@ -48,7 +48,7 @@ struct EventRow: View {
                     HStack(spacing: Spacing.s) {
                         Pill(event.kind.rawValue)
                         if event.isAttending {
-                            Pill("Anmäld", tone: .success)
+                            Pill("Going", tone: .success)
                         }
                     }
                     .padding(.top, Spacing.xs)

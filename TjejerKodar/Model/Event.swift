@@ -5,13 +5,13 @@ struct Event: Identifiable, Hashable, Codable {
     /// What kind of event it is. Used for the pill on the card.
     enum Kind: String, Codable, CaseIterable {
         case workshop = "Workshop"
-        case hackathon = "Hackaton"
+        case hackathon = "Hackathon"
         case meetup = "Meetup"
         case afterwork = "Afterwork"
     }
 
     var id = UUID()
-    /// The title, for example "Koda med AI".
+    /// The title, for example "Coding with AI".
     var title: String
     /// When the event takes place.
     var date: Date
@@ -42,26 +42,26 @@ extension Event {
     /// Sample data to build the interface with.
     /// Dates are calculated from today, so the list never goes stale.
     static let examples: [Event] = [
-        Event(title: "Koda med AI",
+        Event(title: "Coding with AI",
               date: inDays(3, hour: 17),
-              place: "Bruce, Stockholm",
+              place: "Logitech, Stockholm",
               kind: .workshop,
               isAttending: true),
-        Event(title: "Hackaton: bygg vidare på appen",
+        Event(title: "Hackathon: keep building the app",
               date: inDays(11, hour: 9),
               place: "Epicenter, Stockholm",
               kind: .hackathon),
-        Event(title: "Från junior till senior",
+        Event(title: "From junior to senior",
               date: inDays(18, hour: 18),
-              place: "Digitalt",
+              place: "Online",
               kind: .meetup),
-        Event(title: "Afterwork och kodsnack",
+        Event(title: "Afterwork and code talk",
               date: inDays(25, hour: 17),
               place: "Urban Deli, Sveavägen",
               kind: .afterwork),
-        Event(title: "Introduktion till SwiftUI",
+        Event(title: "Intro to SwiftUI",
               date: inDays(39, hour: 17),
-              place: "Bruce, Stockholm",
+              place: "Bruce Studios, Stockholm",
               kind: .workshop)
     ]
 

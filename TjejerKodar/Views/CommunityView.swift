@@ -14,8 +14,8 @@ struct CommunityView: View {
 
             EmptyStateView(
                 icon: "person.2",
-                title: "Här bygger du community-fliken",
-                message: "En lista med personer, och en knapp för att bjuda in dem."
+                title: "This is where you build the community tab",
+                message: "A list of people, and a button to invite them."
             )
 
             Spacer()

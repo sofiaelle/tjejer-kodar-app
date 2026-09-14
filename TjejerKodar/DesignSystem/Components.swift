@@ -62,12 +62,12 @@ struct SecondaryButtonStyle: ButtonStyle {
     }
 }
 
-/// A small button that fits inside a card, for example "Bjud in".
+/// A small button that fits inside a card, for example "Invite".
 /// Changes appearance once something is already done.
 ///
 /// ```swift
-/// Button("Bjud in") { }
-///     .buttonStyle(.compact(isDone: member.isInvited, doneTitle: "Inbjuden"))
+/// Button("Invite") { }
+///     .buttonStyle(.compact(isDone: member.isInvited))
 /// ```
 struct CompactButtonStyle: ButtonStyle {
     var isDone: Bool
@@ -104,7 +104,7 @@ extension ButtonStyle where Self == CompactButtonStyle {
 ///
 /// ```swift
 /// Pill("Workshop")
-/// Pill("Anmäld", tone: .success)
+/// Pill("Going", tone: .success)
 /// ```
 struct Pill: View {
     enum Tone { case accent, success, neutral }
@@ -212,8 +212,8 @@ struct Avatar: View {
 /// ```swift
 /// EmptyStateView(
 ///     icon: "person.2",
-///     title: "Inga vänner än",
-///     message: "Här ska community-fliken byggas."
+///     title: "No friends yet",
+///     message: "This is where the community tab goes."
 /// )
 /// ```
 struct EmptyStateView: View {
@@ -244,7 +244,7 @@ struct EmptyStateView: View {
 /// The heading at the top of a screen, with room for a button on the right.
 ///
 /// ```swift
-/// ScreenHeader("Kommande") {
+/// ScreenHeader("Upcoming") {
 ///     Button { } label: { Image(systemName: "plus") }
 /// }
 /// ```
