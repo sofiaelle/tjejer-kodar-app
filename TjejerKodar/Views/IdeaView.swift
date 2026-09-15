@@ -15,7 +15,7 @@ struct IdeaView: View {
             EmptyStateView(
                 icon: "sparkles",
                 title: "This tab is yours",
-                message: "Build something that is not in the instructions. This is the one everyone wants to see at the demo."
+                message: "Build something that is not in the instructions. Anything you feel like!"
             )
 
             Spacer()

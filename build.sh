@@ -3,6 +3,8 @@
 # Run with:  ./build.sh
 cd "$(dirname "$0")" || exit 1
 
+echo "✨ Building a cool app for cool girls ✨"
+
 output=$(xcodebuild \
   -project TjejerKodar.xcodeproj \
   -scheme TjejerKodar \
